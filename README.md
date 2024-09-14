@@ -22,7 +22,7 @@ IPSnap es un script de Node.js que permite obtener información detallada sobre 
 ## Uso
 
 1. ejcuta el script:
-   node IPSnap
+   node IPSnap.js
 
 2. ingresa la dirección IP qué deseas consultar cuando te lo solicite
    
