@@ -1,15 +1,34 @@
 const axios = require('axios');
 const readline = require('readline');
 
-const colorMorado = (text) => `\x1b[35m${text}\x1b[0m`;
-const title = `${colorMorado('  _____ _____   _____ ')}\n${colorMorado(' |_   _|  __ \\ / ____|')}\n${colorMorado('   | | | |__) | (___  _ __   __ _ _ __')}\n${colorMorado('   | | |  ___/ \\___ \\| \'_ \\ / _\` | \'_ \\')}\n${colorMorado('  _| |_| |     ____) | | | | (_| | |_) |')}\n${colorMorado(' |_____|_|    |_____/|_| |_|\\__,_| .__/')}\n${colorMorado('                                 | |')}\n${colorMorado('                                 |_|')}\n\n${colorMorado('          BY: AIDENZX')}`;
+const title = `
+  _____ _____   _____ 
+ |_   _|  __ \\ / ____|
+   | | | |__) | (___  _ __   __ _ _ __
+   | | |  ___/ \\___ \\| '_ \\ / _\` | '_ \\
+  _| |_| |     ____) | | | | (_| | |_) |
+ |_____|_|    |_____/|_| |_|\\__,_| .__/
+                                 | |
+                                 |_|
+
+          BY: AIDENZX
+`;
 
 console.log(title);
-const apiKey = 'p6LyQpDU6CPketW3OovMyXJqRZ1cu35x'; // Tu nueva clave API
+const apiKey = 'p6LyQpDU6CPketW3OovMyXJqRZ1cu35x';
 
 const getInfo = async (ip) => {
     try {
-        const response = await axios.get(`https://api.iplogger.org/ip/main/?ip=${ip}&apikey=${apiKey}`);
+        const response = await axios.post('https://api.iplogger.org/ip/info/', null, {
+            headers: {
+                'X-token': apiKey,
+                'Content-Type': 'multipart/form-data'
+            },
+            params: {
+                ip: ip
+            }
+        });
+        
         const data = response.data;
 
         console.log('\nInformación de la IP:');
