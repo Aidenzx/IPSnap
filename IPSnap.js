@@ -9,7 +9,7 @@ const apiKey = 'p6LyQpDU6CPketW3OovMyXJqRZ1cu35x'; // Tu nueva clave API
 
 const getInfo = async (ip) => {
     try {
-        const response = await axios.get(`https://api.iplogger.org/v1/ip/${ip}?apikey=${apiKey}`);
+        const response = await axios.get(`https://api.iplogger.org/ip/main/?ip=${ip}&apikey=${apiKey}`);
         const data = response.data;
 
         console.log('\nInformación de la IP:');
