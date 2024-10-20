@@ -6,6 +6,24 @@ const title = `${colorMorado('  _____ _____   _____ ')}\n${colorMorado(' |_   _|
 
 console.log(title);
 const api_url = "http://ip-api.com/json/";
+const abuse_api_url = "https://api.abuseipdb.com/api/v2/check";
+
+const abuseApiKey = 'b35e8ad1fb331fb307cdc7db4d866a59f3a589f0548ca0be7fda144ee15a60530f21953568e6b627';
+
+const getAbuseInfo = async (ip) => {
+    try {
+        const response = await axios.get(`${abuse_api_url}?ipAddress=${ip}`, {
+            headers: {
+                'Key': abuseApiKey,
+                'Accept': 'application/json'
+            }
+        });
+        return response.data.data;
+    } catch (error) {
+        console.error('Error al obtener la información de abuso:', error.message);
+        return null;
+    }
+};
 
 const getInfo = async (ip) => {
     try {
@@ -29,6 +47,12 @@ const getInfo = async (ip) => {
         console.log(`ISP: ${data.isp}`);
         console.log(`Organización: ${data.org}`);
         console.log(`ASN: ${data.as}`);
+
+        const abuseInfo = await getAbuseInfo(ip);
+        if (abuseInfo) {
+            console.log(`Número de reportes de abuso: ${abuseInfo.abuseConfidenceScore}`);
+            console.log(`Comentarios de abuso: ${abuseInfo.lastReportedAt}`);
+        }
 
         process.exit(0);
     } catch (error) {
