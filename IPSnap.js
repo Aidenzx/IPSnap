@@ -9,7 +9,7 @@ const abuse_api_url = "https://api.abuseipdb.com/api/v2/check";
 const vt_api_url = "https://www.virustotal.com/api/v3/ip_addresses/";
 
 const abuseApiKey = 'b35e8ad1fb331fb307cdc7db4d866a59f3a589f0548ca0be7fda144ee15a60530f21953568e6b627';
-const vtApiKey = '6577ec907915ebf3587728186e46a1e74665aa89b88244bb485884acdf639a5a'; // Reemplaza con tu API Key de VirusTotal
+const vtApiKey = '6577ec907915ebf3587728186e46a1e74665aa89b88244bb485884acdf639a5a';
 
 const messages = {
     es: {
@@ -21,7 +21,6 @@ const messages = {
         abuseReports: 'Número de reportes de abuso:',
         abuseComments: 'Comentarios de abuso:',
         vtInfo: 'Información de VirusTotal:',
-        chooseLanguage: 'Elige el idioma:\n1. Español\n2. Inglés',
         goodbye: 'Saliendo...'
     },
     en: {
@@ -38,7 +37,7 @@ const messages = {
     }
 };
 
-let lang = 'es'; // Idioma por defecto
+let lang = 'en'; 
 
 const getAbuseInfo = async (ip) => {
     try {
@@ -129,13 +128,13 @@ const preguntarIP = () => {
 };
 
 const chooseLanguage = () => {
-    rl.question(`${messages.en.chooseLanguage}\n${messages.es.chooseLanguage}\n`, (option) => {
+    rl.question(`${messages.en.chooseLanguage}\n`, (option) => {
         if (option === '1') {
             lang = 'es';
         } else if (option === '2') {
             lang = 'en';
         } else {
-            console.log('Opción no válida. Inténtalo de nuevo.');
+            console.log('Invalid option. Please try again.');
             chooseLanguage();
             return;
         }
@@ -145,4 +144,4 @@ const chooseLanguage = () => {
 };
 
 chooseLanguage();
-            
+                    
