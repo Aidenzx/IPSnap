@@ -1,28 +1,34 @@
 # IPSnap
 
-IPSnap es un script de Node.js que permite obtener información detallada sobre direcciones IP. Utiliza la API de ipinfo.io para recuperar datos como la ciudad, región, país, latitud, longitud y más.
+IPSnap is a Node.js script that allows you to obtain detailed information about IP addresses. It uses the ipinfo.io API to retrieve data such as city, region, country, latitude, longitude, and more.
 
+## Requirements
 
-## Requisitos
+- [Node.js](https://nodejs.org/) (version 12 or higher).
 
-- [Node.js](https://nodejs.org/) (versión 12 o superior).
+## Installation
 
-## Instalación
+1. Clone the repository:
 
-1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/your_username/IPSnap.git
+   ```
 
-   git clone https://github.com/tu_usuario/IPSnap.git
-
-2. accede al directorio:
+2. Access the directory:
+   ```bash
    cd IPSnap
+   ```
 
-3. instala las dependencias:
+3. Install the dependencies:
+   ```bash
    npm install axios
+   ```
 
-## Uso
+## Usage
 
-1. ejcuta el script:
+1. Run the script:
+   ```bash
    node IPSnap.js
+   ```
 
-2. ingresa la dirección IP qué deseas consultar cuando te lo solicite
-   
+2. Enter the IP address you wish to query when prompted.
