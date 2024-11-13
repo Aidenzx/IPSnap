@@ -11,7 +11,7 @@ IPSnap is a Node.js script that allows you to obtain detailed information about 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your_username/IPSnap.git
+   git clone https://github.com/Aidenzx/IPSnap.git
    ```
 
 2. Access the directory:
